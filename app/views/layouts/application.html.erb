@@ -163,6 +163,16 @@
 										</a>
 									</li>
 									<li>
+									<!-- INTERVENTION -->
+									<% if current_user.try(:admin?) %>
+
+										<a href="/#contact">
+
+											INTERVENTION 
+										</a>
+										<% end %>
+									</li>
+									<li>
 									<!-- Account -->
 								<% if current_user %>
 								<a href="">

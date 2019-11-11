@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_192716) do
+ActiveRecord::Schema.define(version: 2019_11_11_150235) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -142,14 +142,20 @@ ActiveRecord::Schema.define(version: 2019_11_04_192716) do
     t.string "title"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_employees_on_email", unique: true
-    t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
-  create_table "fact_interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "client"
+    t.string "building"
+    t.string "battery"
+    t.string "column"
+    t.string "employee"
+    t.string "Description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -161,7 +167,6 @@ ActiveRecord::Schema.define(version: 2019_11_04_192716) do
     t.text "project_description"
     t.string "department_in_charge"
     t.text "message"
-    t.string "attachment_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -215,5 +220,4 @@ ActiveRecord::Schema.define(version: 2019_11_04_192716) do
   add_foreign_key "customers", "leads"
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
-  add_foreign_key "employees", "users"
 end

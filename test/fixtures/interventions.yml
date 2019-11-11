@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Client: MyString
+  Clients Building: 
+  battery: MyString
+  Clients column: 
+  employee: MyString
+  Description: MyString
+
+two:
+  Client: MyString
+  Clients Building: 
+  battery: MyString
+  Clients column: 
+  employee: MyString
+  Description: MyString

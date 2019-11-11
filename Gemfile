@@ -118,7 +118,7 @@ gem 'twilio-ruby', '~> 5.28.0'
 
 gem "zendesk_api"
 
-gem 'dropbox_api'
+
 
 
 gem "ibm_watson"
