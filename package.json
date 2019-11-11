@@ -1,0 +1,7 @@
+{
+  "name": "myapp2",
+  "private": true,
+  "dependencies": {
+    "dropbox": "^4.0.30"
+  }
+}

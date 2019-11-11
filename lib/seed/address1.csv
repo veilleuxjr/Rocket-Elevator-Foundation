@@ -1,0 +1,51 @@
+id,type_of_address,status,entity,number_and_street,appartment_or_suit,city,zip_code,country,notes,weather
+1,Billing,Active,Building,2874 W 8th St,,Los Angeles,90005,United States,quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at
+2,Billing,Inactive,Customer,4308 S Broadway,,Los Angeles,90037,United States,turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in
+3,Home,Inactive,Building,1015 N Gower St,,Los Angeles,90038,United States,phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id
+4,Shipping,Active,Building,3411 Folsom St,,Los Angeles,90063,United States,condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in
+5,Shipping,Active,Building,3051 Verdugo Rd,,Los Angeles,90065,United States,integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum
+6,Billing,Active,Customer,4600 148th Ave NE,,Redmond,98052,United States,donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer
+7,Shipping,Inactive,Building,5228 Shilshole Ave NW,,Seattle,98107,United States,quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet
+8,Billing,Inactive,Customer,4763 Ballard Ave NW,,Seattle,98107,United States,vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia
+9,Home,Active,Customer,9618 Midvale Ave N,,Seattle,98103,United States,in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae
+10,Billing,Active,Customer,4910 15th Ave NW,,Seattle,98107,United States,ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur
+11,Billing,Inactive,Building,710 3rd Ave,,Welaka,32193,United States,libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed
+12,Billing,Active,Customer,690 E Highway 90,,Bonifay,32425,United States,suspendisse potenti in eleifend quam a odio in hac habitasse
+13,Billing,Inactive,Building,690 E Highway 90,,Bonifay,32425,United States,pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus
+14,Shipping,Inactive,Building,13909 N Dale Mabry Hwy Ste 201,,Tampa,33618,United States,a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut
+15,Shipping,Active,Customer,1920 Silver Star Rd,,Orlando,32804,United States,in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris
+16,Shipping,Active,Building,29 Bath Rd,,Brunswick,4011,United States,ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium
+17,Home,Inactive,Building,462 Old Bath Rd,,Brunswick,4011,United States,elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum
+18,Home,Active,Building,868 Atlantic Hwy,,Waldoboro,4572,United States,sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum
+19,Home,Inactive,Customer,100 Westbrook St,,South Portland,4106,United States,dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem
+20,Shipping,Inactive,Customer,3025 N Belfast Ave,,Augusta,4330,United States,libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse
+21,Billing,Active,Building,1101 16th St NE,,Washington,20002,United States,aliquam quis turpis eget elit sodales scelerisque mauris sit amet
+22,Shipping,Inactive,Customer,1016 7th St SE,,Washington,20003,United States,consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim
+23,Home,Active,Building,2632 Douglas St NE,,Washington,20018,United States,fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl
+24,Billing,Active,Customer,3111 Georgia Ave NW,,Washington,20010,United States,pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet
+25,Home,Active,Customer,17902 Cottonwood Ter,,Gaithersburg,20877,United States,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+26,Home,Active,Customer,4500 boul Wilfrid Hamel,,Quebec,G1P 2J9,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+27,Home,Active,Customer,1085, ch Industriel,,Levis,G7A 1B3,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+28,Home,Active,Customer,116 Rue du Grand Duc,,Saint Apollinaire,G0S 2E0,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+29,Home,Active,Customer,234 rue des Saphirs,,Boischatel,G0A 1H0,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+30,Home,Active,Customer,786, Rte du President Kennedy,,Levis,G6C 1E2,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+31,Home,Active,Customer,221, rue Cousineau,,Laval,H7G 3J7,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+32,Home,Active,Customer,1540 rue Sauve E,,Montreal,H2C 2A7,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+33,Home,Active,Customer,5, rue de Dinard,,Candiac,J5R 6V5,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+34,Home,Active,Customer,5200 Ch Saint François,,Saint-Laurent,H4S 1J8,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+35,Home,Active,Customer,55 Place Des Lilas,,Bois Des Filion,J6Z 0A5,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+36,Home,Active,Customer,469 Garyray Dr,,North York,M9L 1P9,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+37,Home,Active,Customer,250 Shields Crt,,Markham,L3R 9W7,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+38,Home,Active,Customer,394 Maple Ave,,Oakville,L6J 2H9,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+39,Home,Active,Customer,443 Whitmore Ave,,York,M6E 2N6,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+40,Home,Active,Customer,88B Geary Ave,,Toronto,M6H 2B6,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+41,Home,Active,Customer,4679 Dundas St W,,Etobicoke,M9A 1A4,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+42,Home,Active,Customer,33 Rowntree Ave,,Toronto,M6N 1R6,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+43,Home,Active,Customer,3145 Danforth Ave,,Scarborough,M1L 1B4,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+44,Home,Active,Customer,5015 Maingate Dr,,Mississauga,L4W 1G4,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+45,Home,Active,Customer,1640 Kent Ave South E,,Vancouver,V5P 2S7,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+46,Home,Active,Customer,22538 Fraser Hwy,,Langley,V2Z 2T8,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+47,Home,Active,Customer,1755 Orkney Pl,,North Vancouver,V7H 2Z1,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+48,Home,Active,Customer,4811 Brentlawn Dr,,Burnaby,V5C 3V4,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+49,Home,Active,Customer,22939 123 AVE,,Maple Ridge,V2X 4E8,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea
+50,Home,Active,Customer,18810 96th Avenue,,Surrey,V4N 3R1,Canada,congue etiam justo etiam pretium iaculis justo in hac habitasse platea

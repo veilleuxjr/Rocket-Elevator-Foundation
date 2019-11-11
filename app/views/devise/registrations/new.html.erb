@@ -1,0 +1,60 @@
+<section class="page-header comHeaderColor">
+<div class="container">
+
+  <h1>Sign in</h1>
+
+  <!-- breadcrumbs -->
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Rocket</li>
+  </ol><!-- /breadcrumbs -->
+
+</div>
+</section>
+<br />
+<div class="text-center">
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+</div>
+
+
+<div style="margin-top: 125px; 
+            margin-left: 500px;
+            margin-bottom: 200px;
+            border-style: solid;
+            padding-left: 100px;
+            padding-top: 50px;
+            height: 450px;
+            width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            ">
+
+
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div><br />
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div><br />
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div><br />
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+</div>

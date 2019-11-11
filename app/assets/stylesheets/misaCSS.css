@@ -1,0 +1,144 @@
+.newsImgSize{
+    width: 200px !important;
+    height: 138px !important;
+}
+
+.clientLogoSize{
+    max-height: 125px;
+}
+
+.portfolioImgSize{
+    max-height: 189px;
+    min-height: 189px;
+}
+
+.srvcBackground{
+    background-color: brown !important;
+}
+
+.btn-primary{
+    background-color: brown !important;
+    border-color: brown;
+}
+
+.srvcReadMore{
+    color:#0b64a0;
+}
+
+.srvcCarroussImgSize{
+    min-height: 300px;
+    max-height: 300px;
+    width: 100%;
+}
+
+.resHeaderColor{
+    background-color: #9cc8e4 !important;
+}
+
+.comHeaderColor{
+    background-color: #e7a0a0 !important;
+}
+
+.quoteHeaderColor{
+    background-color: #0b64a0 !important;
+    color: #fff;
+}
+
+/*quote form*/
+.formStyle{
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 20px;
+}
+
+.chooseType{
+    background-color: #4f8fb9;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-top: 20px;
+    width: 600px;
+}
+
+.chooseType .labelStyle{
+    color: #fff;
+    background-color: #074e7d;
+    padding-top: 7px;
+    padding-left: 20px;
+    padding-bottom: 7px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.showHidden{
+    display: none;
+    width: 600px;
+}
+
+.askStyle{
+    background-color: #4f8fb9;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-top: 10px;
+}
+
+.askStyle .labelStyle{
+    color: #fff;
+    background-color: #074e7d;
+    padding-top: 7px;
+    padding-left: 20px;
+    padding-bottom: 7px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.ansStyle{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding-top: 8px;
+}
+
+.radioStyle0{
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+.radioStyle1{
+    margin-bottom: 15px;
+    margin-left: 60px;
+}
+
+.quoteStyle>label{
+    display: inline-block;
+}
+
+.quoteLabelStyle{
+    margin-left: 30px;
+    width: 150px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.divSize{
+    width: 600px;
+}
+
+
+/* Quote form style */
+.titleStyle{
+    color:white; 
+    font-size: 45px !important;
+    font-weight: bold !important;
+}
+
+/* queries */
+@media (max-width: 600px){
+    .formStyle{
+        padding-left: 20px;
+    }
+}
