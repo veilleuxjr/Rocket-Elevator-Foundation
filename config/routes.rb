@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/google', to: 'google#index'
   get '/quote_confirm', to: 'pages#quote_confirm'
   get '/terms_and_conditions', to: 'pages#terms_and_conditions'
+  get 'interventions/new'  
 
   #get '/leads', to: 'leads#create'
  
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   resources :quotes
   resources :employees
   resources :leads
+  resources :interventions
 
   # get '/WatsonSpeaker/watson'
 
