@@ -5,4 +5,9 @@ class Intervention < ApplicationRecord
     belongs_to :column
     belongs_to :elevator
     belongs_to :employee
+
+
+    def company_name
+        
+    end
 end

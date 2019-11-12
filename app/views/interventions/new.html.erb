@@ -27,7 +27,7 @@
                     <!-- client name -->
                     <div class= "chooseType">
                         <label class= "labelStyle">Client Name</label>
-                        <%= f.collection_select(:company_name, Interventions.client.all, :full_name, :company_name) %>
+                        <%= f.collection_select(:company_name, Customer.all, :full_name, :company_name) %>
                     </div>
                     <!-- /client name -->
 
