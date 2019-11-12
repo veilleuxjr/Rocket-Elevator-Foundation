@@ -6,7 +6,7 @@
                     <section class="page-header quoteHeaderColor">
                     <div class="container">
     
-                        <h1 class= "titleStyle">QUOTE FORM</h1>
+                        <h1 class= "titleStyle">Intervention Form</h1>
     
                         <!-- breadcrumbs -->
                         <ol class="breadcrumb">
@@ -27,16 +27,9 @@
                     <!-- client name -->
                     <div class= "chooseType">
                         <label class= "labelStyle">Client Name</label>
-
-                        <select class= "ansStyle" onchange="showHide()" id= "buildingType" name="Type_of_building">
-                            <option value="">---- Type ----</option>
-                            <option value= "residential">residential</option>
-                            <option value= "commercial">commercial</option>
-                            <option value= "corporate">corporate</option>
-                            <option value= "hybride">hybride</option>
-                        </select>
+                        <%= f.collection_select(:company_name, Interventions.client.all, :full_name, :company_name) %>
                     </div>
-                    <!-- /choose type of building -->
+                    <!-- /client name -->
 
                     <!-- if residential -->
                     <div class= "showHidden" id= "res1"> 
@@ -210,7 +203,7 @@
                         <input name= 'Total_price' id= "D" style= 'display: none'/>
             
                     <br>                           
-                    <button class="btn btn-green btn-lg" type= 'submit'>SUBMIT QUOTE</button>
+                    <button class="btn btn-green btn-lg" type= 'submit'>SUBMIT FORM</button>
                     
                    
                    

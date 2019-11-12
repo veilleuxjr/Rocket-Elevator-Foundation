@@ -1,12 +1,18 @@
 class CreateInterventions < ActiveRecord::Migration[5.2]
   def change
     create_table :interventions do |t|
-          t.string :client
-          t.string :building
-          t.string :battery
-          t.string :column
-          t.string :employee
-          t.string :Description
+          t.bigint :author, default: 0
+          t.references :customer, foreign_key: true, null: false
+          t.references :building, foreign_key: true, null: false
+          t.references :battery, foreign_key: true, null: true
+          t.references :column, foreign_key: true, null: true
+          t.references :elevator, foreign_key: true, null: true
+          t.references :employee, foreign_key: true, null: true
+          t.datetime :intervention_datehour_start, null: true
+          t.datetime :intervention_datehour_end, null: true
+          t.string :result, default: "Incomplete"
+          t.text :rapport
+          t.string :status, default: "Pending"
     
       t.timestamps
     end
