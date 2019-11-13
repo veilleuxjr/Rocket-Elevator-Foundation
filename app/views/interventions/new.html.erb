@@ -27,183 +27,41 @@
                     <!-- client name -->
                     <div class= "chooseType">
                         <label class= "labelStyle">Client Name</label>
-                        <%= f.collection_select(:company_name, Customer.all, :full_name, :company_name) %>
+                        <%= f.collection_select(:company_name, Customer.all, :full_name, :company_name, prompt: 'Select Client') %>
                     </div>
                     <!-- /client name -->
-
-                    <!-- if residential -->
-                    <div class= "showHidden" id= "res1"> 
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many apartments?</label>
-                            <input name= 'Residential_apartment_number' class= "ansStyle" type= "number" placeholder= "Apartments Number" id= "apartmentNumber" onkeyup= "calcCageNumber(); quoteMake()"/></br>
-                        </div>
-
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many floors?</label>
-                            <input name= 'Residential_floor_number' class= "ansStyle" type= "number" placeholder= "Floors Number" id= "resFloorNumber" onkeyup= "calcCageNumber(); quoteMake()"/></br>
-                        </div>
-
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many undergrounds?</label>
-                            <input name= 'Residential_underground_number' class= "ansStyle" type= "number" placeholder= "Undergrounds Number"/></br>
-                        </div>
-
-                    </div>  
-                    <!-- /if residential -->
-
-                    <!-- if commercial -->
-                    <div class= "showHidden" id= "com1"> 
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many stores?</label>
-                            <input  name= 'Commercial_store_number' class= "ansStyle" name="nb_stores" type= "number" placeholder= "Stores Number"/></br>
-                        </div>
-
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many floors?</label>
-                            <input name= 'Commercial_floor_number' class= "ansStyle" type= "number" placeholder= "Floors Number"/></br>
-                        </div>
-
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many undergrounds?</label>
-                            <input name= 'Commercial_underground_number' class= "ansStyle" type= "number" placeholder= "Undergrounds Number"/></br>
-                        </div>
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many elevator cages?</label>
-                            <input name= 'Commercial_elevCage_number' class= "ansStyle" type= "number" placeholder= "Cage Number" id= "comElevCageNumber" onkeyup= "calcCageNumber(); quoteMake()"/></br>
-                        </div>
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many parking places?</label>
-                            <input name= 'Commercial_parkPlace_number' class= "ansStyle" type= "number" placeholder= "Parking Places"/></br>
-                        </div>
-
-                    </div> 
-                    <!-- /if commercial -->
-
-                    <!-- if corporate -->
-                    <div class= "showHidden" id= "corp1"> 
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many separate tenant companies?</label>
-                            <input name= 'Corporate_companie_number' class= "ansStyle" type= "number" placeholder= "Companies Number"/></br>
-                        </div>
-
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many floors?</label>
-                            <input name= 'Corporate_floor_number' class= "ansStyle" type= "number" placeholder= "Floors Number" id= "corFloorNumber" onkeyup= "calcCageNumber(); quoteMake()"/></br>
-                        </div>
-
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many undergrounds?</label>
-                            <input name= 'Corporate_underground_number' class= "ansStyle" type= "number" placeholder= "Undergrounds Number" id= "corUndergrNumber" onkeyup= "calcCageNumber(); quoteMake()"/></br>
-                        </div>
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many parking places?</label>
-                            <input name='Corporate_parkPlace_number' class= "ansStyle" type= "number" placeholder= "Parking Places"/></br>
-                        </div>
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many occupants per floor?</label>
-                            <input name= 'Corporate_OccPerFloor_number' class= "ansStyle" type= "number" placeholder= "Occupants Per Floor" id= "corOccPerFloorNumber" onkeyup= "calcCageNumber(); quoteMake()"/></br>
-                        </div>
-
-                    </div> 
-                    <!-- /if corporate -->
-
-                    <!-- if hybrid -->
-                    <div class= "showHidden" id= "hyb1"> 
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many stores?</label>
-                            <input name= 'Hybrid_store_number' class= "ansStyle" type= "number" placeholder= "Stores Number"/></br>
-                        </div>
-
-                        <div class= "askStyle">                                    
-                            <label class= "labelStyle">How many floors?</label>
-                            <input name='Hybrid_floor_number' class= "ansStyle" type= "number" placeholder= "Floors Number" id= "hybFloorNumber" onkeyup= "calcCageNumber(); quoteMake()"/></br>
-                        </div>
-
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many undergrounds?</label>
-                            <input name='Hybrid_underground_number' class= "ansStyle" type= "number" placeholder= "Undergrounds Number" id= "hybUndergrNumber" onkeyup= "calcCageNumber(); quoteMake()"/></br>
-                        </div>
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many parking places?</label>
-                            <input name= 'Hybrid_parkPlace_number' class= "ansStyle" type= "number" placeholder= "Parking Places"/></br>
-                        </div>
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many occupants per floor?</label>
-                            <input name= 'Hybrid_OccPerFloor_number' class= "ansStyle" type= "number" placeholder= "Occupants Per Floor" id= "hybOccPerFloorNumber" onkeyup= "calcCageNumber(); quoteMake()"/></br>
-                        </div>
-                        <div class= "askStyle">
-                            <label class= "labelStyle">How many hours per day of activity?</label>
-                            <input name= 'Hybrid_hourAct_number' class= "ansStyle" type= "number" placeholder= "Open hours" id= "hoursOfActivity" onkeyup= "correctHour()"/></br>
-                        </div>    
-
-                    </div> 
-                    <!-- /if hybrid -->
-
-                    
-                    <div id= "estCageNumber" class= "divSize"> 
-                        <div class= "askStyle">
-                            <label class= "labelStyle">The estimate cage number is :</label>
-                            <input name= 'Est_cage_number'class= "ansStyle" type= "number" id= "estimateCageNumber" placeholder= "Estimate Cage Number" value disabled/></br>
+                    <!-- client building -->
+                        <div class= "chooseType">
+                            <label class= "labelStyle">Client's Building :</label>
+                            <%= f.collection_select(:company_name, Building.all, :id, :admin_full_name, prompt: 'Select Building') %>
                         </div>      
-                    </div>
-                    
-
-                    <div class= "divSize"> 
-                        <div class= "askStyle">
-                            <label class= "labelStyle">Which range of elevator cage do you need?</label>
-                            <input type= "radio" value= "standard" name= "Range" class= "radioStyle0" id= "stdRange" onclick= "quoteMake()"/><i style= "color: #fff; font-weight: bold;"> STANDARD</i>
-                            <input type= "radio" value= "premium" name= "Range" class= "radioStyle1" id= "prmRange" onclick= "quoteMake()"/><i style= "color: #fff; font-weight: bold;"> PREMIUM</i>
-                            <input type= "radio" value= "excelium" name= "Range" class= "radioStyle1" id= "excRange" onclick= "quoteMake()"/><i style= "color: #fff; font-weight: bold;"> EXCELIUM</i>
-
-                        </div>      
-                    </div>
-        
-                    
-                    <div class= "divSize"> 
-                        <div class= "askStyle">
-                            <label class= "labelStyle">Here is your quote :</label>
-                            <div class= "quoteStyle">
-                                <label class = "quoteLabelStyle">Unit Price :</label><label class = "quoteLabelStyle" id= "unitP"></label> </br>
-                            </div>
-                            <div class= "quoteStyle">
-                                <label class = "quoteLabelStyle">Elevator Price :</label><label class = "quoteLabelStyle" id= "elevP"></label> </br>
-                            </div>
-                            <div class= "quoteStyle">
-                                <label class = "quoteLabelStyle">Installation Cost :</label><label class = "quoteLabelStyle" id= "instP"></label> </br>
-                            </div>
-                            <div class= "quoteStyle">
-                                <label class = "quoteLabelStyle">Total Price :</label><label class = "quoteLabelStyle" id= "totalP"></label></br>
-                            </div>
-                        </div>      
-                    </div>
-
-
-
-                    <div class= "divSize"> 
-                        <div class= "askStyle">
-                            <label class= "labelStyle">Clients information</label>
-                            <div class= "quoteStyle">
-                                <label class = "quoteLabelStyle">Your Full Name:</label>
-                                <input name='Name' class= "ansStyle" required type="text"/></br>
-                                <label class = "quoteLabelStyle">Your Company:</label>
-                                <input name='Company' class= "ansStyle" required type="text"/></br>
-                                <label class = "quoteLabelStyle">Email Address:</label>
-                                <input name='Email' class= "ansStyle" required type="email"/></br>
-                                <label class = "quoteLabelStyle">Phone Number:</label>
-                                <input name='Phone' class= "ansStyle" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000" type= "tel"/></br>
-                            </div>
-                        
-                        </div>      
-                    </div>
-
-                        <input name= 'Est_cage_number' id= "E" style= 'display: none'/>                            
-                        <input name= 'Unit_price' id= "A" style= 'display: none'/>
-                        <input name= 'Elevator_price' id= "B" style= 'display: none'/>
-                        <input name= 'Installation_cost' id= "C" style= 'display: none'/>
-                        <input name= 'Total_price' id= "D" style= 'display: none'/>
-            
+                    <!-- /client building -->
+                    <!-- client battery -->
+                     <div class= "chooseType">
+                            <label class= "labelStyle">Client's Batteries :</label>
+                            <%= f.collection_select(:company_name, Battery.all, :id, :operation_certificate, prompt: 'Select Battery') %>
+                        </div>  
+                    <!-- /client battery --> 
+                    <!-- client column -->
+                     <div class= "chooseType">
+                            <label class= "labelStyle">Client's Column :</label>
+                            <%= f.collection_select(:company_name, Column.all, :id, :id, prompt: 'Select Column') %>
+                        </div> 
+                    <!-- /client column -->
+                    <!-- client elevator -->
+                       <div class= "chooseType">
+                            <label class= "labelStyle">Client's Elevator :</label>
+                            <%= f.collection_select(:company_name, Elevator.all, :id, :id, prompt: 'Select Elevator') %>
+                        </div> 
+                    <!-- /client elevator -->
+                    <!-- client employee -->
+                    <div class= "chooseType">
+                            <label class= "labelStyle">Client's Employee :</label>
+                            <%= f.collection_select(:company_name, Employee.all, :id, :first_name, prompt: 'Select Employee') %>
+                        </div> 
+                    <!-- /client employee -->
                     <br>                           
-                    <button class="btn btn-green btn-lg" type= 'submit'>SUBMIT FORM</button>
+                    <button class="btn btn-green btn-lg" type= 'submit'>SUBMIT INTERVENTION</button>
                     
                    
                    

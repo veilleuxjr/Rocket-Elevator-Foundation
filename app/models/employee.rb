@@ -10,5 +10,9 @@ class Employee< ApplicationRecord
   def name
     "#{self.id} #{self.last_name}"
   end
+
+  def company_name
+        
+  end
 end
 
