@@ -25,43 +25,43 @@
                  <!-- client name -->
                  <section class= "formStyle" id= "toPrintQuote">
 
-                    <div class= "chooseType">
-                        <label class= "labelStyle">Client Name</label>
-                        <%= f.collection_select(:company_name, Customer.all, :full_name, :company_name, prompt: 'Select Client') %>
+                    <div class= "customer" id="customer">
+                        <label for="customer_id" class="labelStyle">Client Name</label>
+                        <%= f.collection_select(:customer, Customer.all, :id, :company_name, {:prompt=>'Select Customer'}, {:class=>'customer_id'}) %>
                     </div>
                     <!-- /client name -->
                     <!-- client building -->
                         <div class= "chooseType">
                             <label class= "labelStyle">Client's Building :</label>
-                            <%= f.collection_select(:company_name, Building.all, :id, :admin_full_name, prompt: 'Select Building') %>
+                            <%= f.collection_select(:company_name, Building.all, :id, :admin_full_name, {:prompt=>'Select Building'}, {:class=>'building_id'}) %>
                         </div>      
 
                     <!-- client battery -->
                      <div class= "field">
                             <label class= "labelStyle">Client's Batteries :</label>
-                            <%= f.collection_select(:company_name, Battery.all, :id, :operation_certificate, prompt: 'Select Battery') %>
+                            <%= f.collection_select(:company_name, Battery.all, :id, :operation_certificate, {:prompt=>'Select Battery'}, {:class=>'battery_id'}) %>
                         </div>  
                     <!-- /client battery --> 
                     <!-- client column -->
                      <div class= "chooseType">
                             <label class= "labelStyle">Client's Column :</label>
-                            <%= f.collection_select(:company_name, Column.all, :id, :id, prompt: 'Select Column') %>
+                            <%= f.collection_select(:company_name, Column.all, :id, :id, {:prompt=>'Select Column'}, {:class=>'column_id'}) %>
                         </div> 
                     <!-- /client column -->
                     <!-- client elevator -->
                        <div class= "chooseType">
                             <label class= "labelStyle">Client's Elevator :</label>
-                            <%= f.collection_select(:company_name, Elevator.all, :id, :id, prompt: 'Select Elevator') %>
+                            <%= f.collection_select(:company_name, Elevator.all, :id, :id, {:prompt=>'Select Elevator'}, {:class=>'elevator_id'}) %>
                         </div> 
                     <!-- /client elevator -->
                     <!-- client employee -->
                     <div class= "chooseType">
                             <label class= "labelStyle">Client's Employee :</label>
-                            <%= f.collection_select(:company_name, Employee.all, :id, :first_name, prompt: 'Select Employee') %>
+                            <%= f.collection_select(:company_name, Employee.all, :id, :first_name, {:prompt=>'Select Employee'}, {:class=>'employe_id'}) %>
                         </div> 
                     <!-- /client employee -->
                     <br>                           
-                    <button class="btn btn-green btn-lg" type= 'submit'>SUBMIT INTERVENTION</button>
+                    <%# <button class="btn btn-green btn-lg" type= 'submit'>SUBMIT INTERVENTION</button> %>
                     
                    
                    
@@ -75,6 +75,7 @@
     
             
 <script src="/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+<script src="/app/assets/javascripts/buildings.js"></script> 
 
 <!-- JAVASCRIPT FILES -->
 <script>var plugin_path = '/assets/plugins/';</script>

@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   get '/quote_confirm', to: 'pages#quote_confirm'
   get '/terms_and_conditions', to: 'pages#terms_and_conditions'
   get 'interventions/new'  
-
+  get 'get_buildings_by_customer/:customer_id', to: 'intervention#get_buildings_by_customer'  
+  get '/buildings_search' => 'intervention#building_search'
+  get 'get_battery_by_buildings/:buildings_id', to: 'intervention#get_battery_by_buildings'  
+  get '/battery_search' => 'intervention#battery_search'
   #get '/leads', to: 'leads#create'
  
 
