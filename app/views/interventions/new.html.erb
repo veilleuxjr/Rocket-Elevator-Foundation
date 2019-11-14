@@ -22,23 +22,19 @@
             <%= form_for @interventions do |f| %>
 
                 <!-- form -->
-                <section class= "formStyle" id= "toPrintQuote">
+                 <!-- client name -->
+                 <section class= "formStyle" id= "toPrintQuote">
 
-                    <div class="field">
-                        <%= form.label :country_id %>
-                        <%= form.select :country_id, 
-                        options_for_select(Customer.select_values, user&.Customer&.id), 
-                        { include_blank: true },
-                        { class: 'remote-select', data: { target: '#user_intervention_id' }} %>
+                    <div class= "chooseType">
+                        <label class= "labelStyle">Client Name</label>
+                        <%= f.collection_select(:company_name, Customer.all, :full_name, :company_name, prompt: 'Select Client') %>
                     </div>
-
-                   <div class="field">
-                        <%= form.label :state_id %>
-                        <%= form.select :state_id,
-                        options_for_select(State.select_values(user&.country), user&.state&.id),
-                        {},
-                        {} %>
-                    </div>
+                    <!-- /client name -->
+                    <!-- client building -->
+                        <div class= "chooseType">
+                            <label class= "labelStyle">Client's Building :</label>
+                            <%= f.collection_select(:company_name, Building.all, :id, :admin_full_name, prompt: 'Select Building') %>
+                        </div>      
 
                     <!-- client battery -->
                      <div class= "field">
@@ -79,7 +75,6 @@
     
             
 <script src="/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
-<script src="\assets\js\form.js"></script>
 
 <!-- JAVASCRIPT FILES -->
 <script>var plugin_path = '/assets/plugins/';</script>
@@ -89,10 +84,10 @@
 
 
 <!-- REVOLUTION SLIDER -->
-<script src="/assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+<%# <script src="/assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
 <script src="/assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script src="/assets/js/view/demo.revolution_slider.js"></script>
+<script src="/assets/js/view/demo.revolution_slider.js"></script> %>
 
 <!-- PAGELEVEL SCRIPTS -->
-<script src="/assets/js/contact.js"></script>
+<%# <script src="/assets/js/contact.js"></script> %>
   

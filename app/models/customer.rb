@@ -3,18 +3,9 @@ class Customer < ApplicationRecord
     has_many :buildings
     belongs_to :address
     belongs_to :user
-    has_many :intervention
+
     after_update :dropbox
-
-    def self.select_values
-        Customer.all.map { |customer| [customer.full_name, customer.id, { data { url: data_url(customer)}}]}
-    end
-
-    private
-
-    def self.data_url(customer)
-        Rails.application.routes.url_helpers.customer_intervention_path(customer, format: :json)
-    end
+    
 
 
     def dropbox

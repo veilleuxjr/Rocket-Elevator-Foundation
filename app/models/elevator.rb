@@ -3,20 +3,9 @@ require 'twilio-ruby'
 class Elevator < ApplicationRecord
 
     belongs_to :column
-    has_many :intervention
+
 
     after_update :status_changed
-
-
-    def self.select_values
-        Elevator.all.map { |elevator| [elevator.id, elevator.id, { data { url: data_url(elevator)}}]}
-    end
-
-    private
-
-    def self.data_url(elevator)
-        Rails.application.routes.url_helpers.elevator_intervention_path(elevator, format: :json)
-    end
 
     def status_changed
         SlackNotifier::CLIENT.ping "The Elevator #{self.id} with Serial Number #{self.serial_number} changed status from #{previous_changes[:status][0]} to #{self.status}"
