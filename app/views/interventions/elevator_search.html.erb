@@ -1,0 +1,14 @@
+<div class="row no-gutters wow slideInUp" data-wow-duration="1s">
+  <div class="col-md-12 home-form">
+    <%= form_tag(elevator_search_path, method: "get", class: "form-inline", remote: true) do %>
+    <%= select_tag "column", options_from_collection_for_select(Column.all, "id", "header"), prompt: "Column", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+    <%= select_tag "elevator_type", options_from_collection_for_select(Elevator.all, "id", "elevator_type"), prompt: "Elevator Type", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+    <%= select_tag "course", options_from_collection_for_select(Elevator.all, "id", "title"), prompt: "Elevator", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+    <%= submit_tag("Search", class: "btn btn-primary") %>
+<% end %>
+  </div>
+</div>
+
+<div class="row" id="elevator_listing">
+  <%= render partial: "elevator_list", locals: {elevator: @elevator} %>
+</div>

@@ -5,6 +5,7 @@ $(function() {
      var row = "<option value=\"" + "" + "\">" + "buildings" + "</option>";
      $(row).appendTo("select#buildings");
     }
+    console.log(row)
     $(".customer_id").change(function() {
         console.log("customer change")
      var id_value_string = $(this).val();

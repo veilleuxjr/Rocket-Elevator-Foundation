@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/TitovDigital/activestorage-database-service.git
-  revision: cf855b5f6ef59f15d05bebc5b1ffcfb92affe71e
+  revision: f04c537f6a6c2cafe90d37845bce7310d2ed5bf0
   specs:
-    activestorage-database-service (0.1.0)
+    activestorage-database-service (1.0.0)
       rails (>= 5.2.1.1)
 
 GEM
@@ -127,14 +127,14 @@ GEM
     erubi (1.9.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
-    faker (2.7.0)
-      i18n (>= 1.6, < 1.8)
+    faker (1.9.6)
+      i18n (>= 0.7)
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
     faye-websocket (0.10.9)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
-    ffi (1.11.1)
+    ffi (1.11.2)
     figaro (1.1.1)
       thor (~> 0.14)
     font-awesome-rails (4.7.0.5)
@@ -160,7 +160,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
-    ibm_cloud_sdk_core (1.0.1)
+    ibm_cloud_sdk_core (1.1.0)
       concurrent-ruby (~> 1.0)
       http (~> 4.1.0)
       jwt (~> 2.2.1)
@@ -290,7 +290,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
-    rake (13.0.0)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -409,7 +409,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dropbox_api
-  faker
+  faker (~> 1.9.6)
   faraday
   figaro
   font-awesome-rails

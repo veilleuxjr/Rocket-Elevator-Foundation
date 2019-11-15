@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -18,7 +19,6 @@ User.create!(email: "serge.savoie@codeboxx.biz", password: "123456", password_co
 User.create!(email: "nadya.fortier@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true, created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
 User.create!(email: "martin.chantal@codeboxx.biz", password: "123456", password_confirmation: "123456", admin: true, created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
 
-
 100.times do
     User.create!(
         email: Faker::Internet.email,
@@ -27,7 +27,6 @@ User.create!(email: "martin.chantal@codeboxx.biz", password: "123456", password_
         updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
     )
 end
-
 
 Employee.create!(first_name: 'Nicolas', last_name: 'Genest', title: 'Comm.Rep', email: 'nicolas.genest@codeboxx.biz', password: '123456', user_id: '1', created_at: Faker::Time.between(6.years.ago, 5.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
 Employee.create!(first_name: 'David', last_name: 'Boutin', title: 'Engineer', email: 'david.boutin@codeboxx.biz', password: '123456', user_id: '2', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
@@ -39,7 +38,6 @@ Employee.create!(first_name: 'Serge', last_name: 'Savoie', title: 'Engineer', em
 Employee.create!(first_name: 'Nadya', last_name: 'Fortier', title: 'Director', email: 'nadya.fortier@codeboxx.biz', password: '123456', user_id: '8', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
 Employee.create!(first_name: 'Martin', last_name: 'Chantal', title: 'Engineer', email: 'martin.chantal@codeboxx.biz', password: '123456', user_id: '9', created_at: Faker::Time.between(5.years.ago, 4.years.ago, :all),  updated_at: Faker::Time.between(2.years.ago, Time.now, :all))
  
-
 user_id_array = [*21..99]
 
 43.times do 
@@ -56,7 +54,6 @@ user_id_array = [*21..99]
     )
 end
 
-
 40.times do
     Lead.create!(
 
@@ -68,17 +65,15 @@ end
         project_description: Faker::Company.type,
         department_in_charge: Faker::Commerce.department,
         message: Faker::Construction.subcontract_category,
-        
         created_at: Faker::Time.between(5.months.ago, Time.now, :all),
         updated_at: Faker::Time.between(2.weeks.ago, Time.now, :all)
     )
-  end
+end
 
-    status_array = ["Active", "Active", "Active", "Inactive"]
+    status_array = ["Active", "Active", "Active", "Inactive", "Intervention"]
     type_of_building_array = ["Residential", "Commercial", "Corporative", "Hybrid"]
     type_of_service_array = ["Standard", "Premium", "Excelium"]
-    
-    
+
     csv_text = File.read(Rails.root.join('lib', 'seed', 'address1.csv'))
     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
     csv.each do |row|
@@ -101,7 +96,6 @@ end
     user_id_array = [*11..20]
     lead_id_array = [*1..40]
 
-
 10.times do
     Customer.create!(
 
@@ -114,19 +108,16 @@ end
         phone_of_technical_service: Faker::PhoneNumber.phone_number,
         email_of_technical_service: Faker::Internet.email,
         address_id: address_id_array.delete(address_id_array.sample),
-
         user_id: user_id_array.delete(user_id_array.sample),
-        
-        
         created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
         updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
     )
- end
+end
 
     address_id_array = [*11..25]
     customer_id_array = [*1..10]
 
- 10.times do
+10.times do
     Building.create!(
 
         admin_full_name: Faker::Name.first_name.delete("\'"),
@@ -281,6 +272,5 @@ end
         total_price: Faker::Commerce.price(),
         created_at: Faker::Time.between(6.months.ago, 2.weeks.ago, :all),
         updated_at: Faker::Time.between(2.weeks.ago, Time.now, :all)
-)
+    )
 end
-

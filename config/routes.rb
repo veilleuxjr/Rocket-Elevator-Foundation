@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get '/buildings_search' => 'intervention#building_search'
   get 'get_battery_by_buildings/:buildings_id', to: 'intervention#get_battery_by_buildings'  
   get '/battery_search' => 'intervention#battery_search'
+  get '/get_column_by_battery/:battery_id', to: 'intervention#get_column_by_battery'  
+  get '/column_search' => 'intervention#column_search'
+  get '/get_elevator_by_column/:column_id', to: 'intervention#get_elevator_by_column'  
+  get '/elevator_search' => 'intervention#elevator_search'
   #get '/leads', to: 'leads#create'
  
 

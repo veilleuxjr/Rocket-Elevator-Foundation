@@ -33,31 +33,31 @@
                     <!-- client building -->
                         <div class= "chooseType">
                             <label class= "labelStyle">Client's Building :</label>
-                            <%= f.collection_select(:company_name, Building.all, :id, :admin_full_name, {:prompt=>'Select Building'}, {:class=>'building_id'}) %>
+                            <%= f.collection_select(:building_id, Building.all, :id, :admin_full_name, {:prompt=>'Select Building'}, {:class=>'building_id'}) %>
                         </div>      
 
                     <!-- client battery -->
                      <div class= "field">
                             <label class= "labelStyle">Client's Batteries :</label>
-                            <%= f.collection_select(:company_name, Battery.all, :id, :operation_certificate, {:prompt=>'Select Battery'}, {:class=>'battery_id'}) %>
+                            <%= f.collection_select(:battery_id, Battery.all, :id, :operation_certificate, {:prompt=>'Select Battery'}, {:class=>'battery_id'}) %>
                         </div>  
                     <!-- /client battery --> 
                     <!-- client column -->
                      <div class= "chooseType">
                             <label class= "labelStyle">Client's Column :</label>
-                            <%= f.collection_select(:company_name, Column.all, :id, :id, {:prompt=>'Select Column'}, {:class=>'column_id'}) %>
+                            <%= f.collection_select(:column_id, Column.all, :id, :id, {:prompt=>'Select Column'}, {:class=>'column_id'}) %>
                         </div> 
                     <!-- /client column -->
                     <!-- client elevator -->
                        <div class= "chooseType">
                             <label class= "labelStyle">Client's Elevator :</label>
-                            <%= f.collection_select(:company_name, Elevator.all, :id, :id, {:prompt=>'Select Elevator'}, {:class=>'elevator_id'}) %>
+                            <%= f.collection_select(:elevator_id, Elevator.all, :id, :id, {:prompt=>'Select Elevator'}, {:class=>'elevator_id'}) %>
                         </div> 
                     <!-- /client elevator -->
                     <!-- client employee -->
                     <div class= "chooseType">
                             <label class= "labelStyle">Client's Employee :</label>
-                            <%= f.collection_select(:company_name, Employee.all, :id, :first_name, {:prompt=>'Select Employee'}, {:class=>'employe_id'}) %>
+                            <%= f.collection_select(:employee_id, Employee.all, :id, :first_name, {:prompt=>'Select Employee'}, {:class=>'employe_id'}) %>
                         </div> 
                     <!-- /client employee -->
                     <br>                           
@@ -74,14 +74,9 @@
             
     
             
-<script src="/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
-<script src="/app/assets/javascripts/buildings.js"></script> 
 
 <!-- JAVASCRIPT FILES -->
-<script>var plugin_path = '/assets/plugins/';</script>
-<script src="/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
-<script src="/assets/js/scripts.js"></script>
 
 
 <!-- REVOLUTION SLIDER -->

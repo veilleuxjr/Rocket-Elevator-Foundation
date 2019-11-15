@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 //= require bootstrap/bootstrap-tooltip
 //= require jquery_ujs

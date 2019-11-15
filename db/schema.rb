@@ -142,9 +142,11 @@ ActiveRecord::Schema.define(version: 2019_11_12_005822) do
     t.string "title"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_employees_on_email", unique: true
+    t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
   create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -179,6 +181,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_005822) do
     t.text "project_description"
     t.string "department_in_charge"
     t.text "message"
+    t.string "attachment_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -232,6 +235,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_005822) do
   add_foreign_key "customers", "leads"
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
+  add_foreign_key "employees", "users"
   add_foreign_key "interventions", "batteries"
   add_foreign_key "interventions", "buildings"
   add_foreign_key "interventions", "columns"

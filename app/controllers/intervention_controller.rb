@@ -3,7 +3,37 @@ class InterventionController < ApplicationController
     before_action :set_intervention, only: [:show, :edit, :update, :destroy]
    
     def new
-      @intervention = intervention.new
+      @interventions = Intervention.new
+    end
+
+    def get_elevator_by_column
+      puts params[:column_id]
+        @elevator = Elevator.find(params[:column_id])
+        puts @elevator
+        respond_to do |format|
+          format.json { render :json => @elevator }
+        end
+      end 
+      def elevator_search
+        if params[:location].present? && params[:column].strip != ""
+          @elevator = Elevator.where("column_id = ?", params[:column])
+        else
+          @elevator = Elevator.all
+        end
+      end
+    def get_column_by_battery
+      @column = Column.where("battery_id = ?", params[:battery_id])
+      puts @column
+      respond_to do |format|
+        format.json { render :json => @column }
+      end
+    end 
+    def column_search
+      if params[:location].present? && params[:battery_id].strip != ""
+        @column = Column.where("battery_id = ?", params[:battery_id])
+      else
+        @column = Column.all
+      end
     end
 
     def get_battery_by_buildings
