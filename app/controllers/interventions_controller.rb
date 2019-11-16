@@ -1,227 +1,163 @@
 class InterventionsController < ApplicationController
    
-  before_action :set_interventions, only: [:show, :edit, :update, :destroy]
- 
-  def new
-    @interventions = Intervention.new
-  end
-
-  def create
-
-    typeOfBuilding = params['Type_of_building']
-
-    residentialApartmentNumber = params['Residential_apartment_number']
-    residentialFloorNumber = params['Residential_floor_number']
-    residentialUndergroundNumber = params['Residential_underground_number']
-
-    commercialFloorNumber = params['Commercial_floor_number']
-    commercialStoreNumber = params['Commercial_store_number']
-    commercialUndergroundNumber = params['Commercial_underground_number']
-    commercialElevCageNumber = params['Commercial_elevCage_number']
-    commercialParkPlaceNumber = params['Commercial_parkPlace_number']
-
-    corporateCompanieNumber = params['Corporate_companie_number']
-    corporateFloorNumber = params['Corporate_floor_number']
-    corporateUndergroundNumber = params['Corporate_underground_number']
-    corporateParkPlaceNumber = params['Corporate_parkPlace_number']
-    corporateOccPerFloorNumber =params['Corporate_OccPerFloor_number']
-
-    hybridStoreNumber = params['Hybrid_store_number']
-    hybridFloorNumber = params['Hybrid_floor_number']
-    hybridUndergroundNumber = params['Hybrid_underground_number']
-    hybridParkplaceNumber = params['Hybrid_parkPlace_number']
-    hybridOccPerFloorNumber = params['Hybrid_OccPerFloor_number']
-    hybridHourActNumber = params['Hybrid_hourAct_number']
-
-    estCageNumber = params['Est_cage_number']
-    range = params['Range']
-    unitPrice = params['Unit_price']
-    elevatorPrice = params['Elevator_price']
-    installationCost =params['Installation_cost']
-    totalPrice = params['Total_price']
-
-    name = params['Name']
-    company = params['Company']
-    email = params['Email']
-    phone = params['Phone']
-
-    
-
-    @interventions = interventions.new(interventions_params)
-    
-    
-    @interventions.type_of_building = typeOfBuilding
-
-    if typeOfBuilding == 'residential'
-      @interventions.apartments_number = residentialApartmentNumber
-      @interventions.floors_number = residentialFloorNumber
-      @interventions.undergrounds_number = residentialUndergroundNumber
-
-      @interventions.estimate_cage_number = estCageNumber
-      @interventions.range_of_elevator = range
-      @interventions.unit_price = unitPrice
-      @interventions.elevator_price = elevatorPrice
-      @interventions.installation_cost = installationCost
-      @interventions.total_price = totalPrice
-      @interventions.name = name
-      @interventions.company = company
-      @interventions.email = email
-      @interventions.phone_number = phone
-
-      
-      @interventions.save!
-      @interventions.interventions
-      redirect_to interventions_confirm_path
-      
+	skip_before_action :verify_authenticity_token
+  before_action :set_intervention, only: [:show, :edit, :update, :destroy]
+   
+    def new
+      @interventions = Intervention.new
     end
 
-    if typeOfBuilding == 'commercial'
-      @interventions.floors_number = commercialFloorNumber
-      @interventions.stores_number = commercialStoreNumber
-      @interventions.undergrounds_number = commercialUndergroundNumber
-      @interventions.cage_number = commercialElevCageNumber
-      @interventions.parking_places = commercialParkPlaceNumber
-
-      @interventions.estimate_cage_number = estCageNumber
-      @interventions.range_of_elevator = range
-      @interventions.unit_price = unitPrice
-      @interventions.elevator_price = elevatorPrice
-      @interventions.installation_cost = installationCost
-      @interventions.total_price = totalPrice
-      @interventions.name = name
-      @interventions.company = company
-      @interventions.email = email
-      @interventions.phone_number = phone
-
-      
-      @interventions.save!
-      @interventions.interventions
-      redirect_to interventions_confirm_path
-     
-    end
-
-    if typeOfBuilding == 'corporate'
-      @interventions.companies_number = corporateCompanieNumber
-      @interventions.floors_number = corporateFloorNumber
-      @interventions.undergrounds_number = corporateUndergroundNumber
-      @interventions.parking_places = corporateParkPlaceNumber
-      @interventions.occupants_per_floor = corporateOccPerFloorNumber
-
-      @interventions.estimate_cage_number = estCageNumber
-      @interventions.range_of_elevator = range
-      @interventions.unit_price = unitPrice
-      @interventions.elevator_price = elevatorPrice
-      @interventions.installation_cost = installationCost
-      @interventions.total_price = totalPrice
-      @interventions.name = name
-      @interventions.company = company
-      @interventions.email = email
-      @interventions.phone_number = phone
-
-      
-      @interventions.save!
-      @interventions.interventions
-      redirect_to interventions_confirm_path
-      
-    end
-
-    if typeOfBuilding == 'hybride'
-      @interventions.stores_number = hybridStoreNumber
-      @interventions.floors_number = hybridFloorNumber
-      @interventions.undergrounds_number = hybridUndergroundNumber
-      @interventions.parking_places = hybridParkplaceNumber
-      @interventions.occupants_per_floor = hybridOccPerFloorNumber
-      @interventions.open_hours = hybridHourActNumber
-
-      @interventions.estimate_cage_number = estCageNumber
-      @interventions.range_of_elevator = range
-      @interventions.unit_price = unitPrice
-      @interventions.elevator_price = elevatorPrice
-      @interventions.installation_cost = installationCost
-      @interventions.total_price = totalPrice
-      @interventions.name = name
-      @interventions.company = company
-      @interventions.email = email
-      @interventions.phone_number = phone
-
-      
-      @interventions.save!
-      @interventions.interventions
-      redirect_to interventions_confirm_path
-     
-    end
-  
-
-    if typeOfBuilding == nil
-      redirect_to interventions_new_path
-    end
-  end
-  
-
-  # GET /interventionss
-  # GET /interventionss.json
-  def index
-    @interventions.get_a_interventions
-    @interventionss = interventions.all
-  end
-
-  # GET /interventionss/1
-  # GET /interventionss/1.json
-  def show
-  end
-
-
-
-  # GET /interventionss/1/edit
-  def edit
-  end
-
-  # POST /interventionss
-  # POST /interventionss.json
-
-    respond_to do |format|
-      if @interventions.save
-        format.html { redirect_to @interventions, notice: 'interventions was successfully created.' }
-        format.json { render :show, status: :created, location: @interventions }
-      else
-        format.html { render :new }
-        format.json { render json: @interventions.errors, status: :unprocessable_entity }
+    def get_elevator_by_column
+      puts params[:column_id]
+        @elevator = Elevator.where("column_id = ?", params[:column_id])
+        puts @elevator
+        respond_to do |format|
+          format.json { render :json => @elevator }
+        end
+      end 
+      def elevator_search
+        if params[:location].present? && params[:column].strip != ""
+          @elevator = Elevator.where("column_id = ?", params[:column])
+        else
+          @elevator = Elevator.all
+        end
       end
-    end
-  
-
-  # PATCH/PUT /interventionss/1
-  # PATCH/PUT /interventionss/1.json
-  def update
-    respond_to do |format|
-      if @interventions.update(interventions_params)
-        format.html { redirect_to @interventions, notice: 'interventions was successfully updated.' }
-        format.json { render :show, status: :ok, location: @interventions }
-      else
-        format.html { render :edit }
-        format.json { render json: @interventions.errors, status: :unprocessable_entity }
+    def get_column_by_battery
+      @column = Column.where("battery_id = ?", params[:battery_id])
+      puts @column
+      respond_to do |format|
+        format.json { render :json => @column }
       end
-    end
-  end
-
-  # DELETE /interventionss/1
-  # DELETE /interventionss/1.json
-  def destroy
-    @interventions.destroy
-    respond_to do |format|
-      format.html { redirect_to interventionss_url, notice: 'interventions was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_interventions
-      @interventions = interventions.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def interventions_params
-      params.fetch(:interventions, {})
     end 
-  end
+    def column_search
+      if params[:location].present? && params[:battery_id].strip != ""
+        @column = Column.where("battery_id = ?", params[:battery_id])
+      else
+        @column = Column.all
+      end
+    end
+
+    def get_battery_by_buildings
+      @battery = Battery.where(building_id: params[:buildings_id])
+      puts @battery
+      respond_to do |format|
+        format.json { render :json => @battery }
+      end
+    end 
+    def battery_search
+      if params[:location].present? && params[:buildings].strip != ""
+        @battery = Battery.where("buildings_id = ?", params[:buildings])
+      else
+        @battery = Battery.all
+      end
+    end
+
+    def get_buildings_by_customer
+      puts params[:customer_id]
+      @buildings = Building.where(customer_id: params[:customer_id])
+      puts @buildings.count
+      respond_to do |format|
+        format.json { render :json => @buildings }
+      end
+    end 
+    def building_search
+      if params[:location].present? && params[:customer].strip != ""
+        @buildings = Building.where("customer_id = ?", params[:customer])
+      else
+        @buildings = Building.all
+      end
+    end
+  
+    def create
+  
+      @interventions = Intervention.new
+
+      @interventions.author = params['author']
+      @interventions.customer_id = params['intervention']['customer']
+      @interventions.building_id = params['intervention']['building_id']
+      @interventions.battery_id = params['intervention']['battery_id'] if params['intervention']['column_id'] == ""
+      @interventions.column_id = params['intervention']['column_id'] if params['intervention']['elevator_id'] == ""
+      @interventions.elevator_id = params['intervention']['elevator_id']
+      @interventions.employee_id = params['intervention']['employee_id']
+      @interventions.rapport = params['rapport']
+    
+     
+    
+      #   if params['intervention']['column_id'] == ""
+      #   @interventions.get_interventions_battery
+      # elsif params['intervention']['elevator_id'] == ""
+      #   @interventions.get_interventions_column
+      # else
+      #   @interventions.get_interventions_elevator
+     
+      @interventions.save!
+      redirect_to root_path
+      end
+  
+    # GET /intervention
+    # GET /intervention.json
+    def index
+      @intervention.get_a_intervention
+      @intervention = intervention.all
+    end
+  
+    # GET /intervention/1
+    # GET /intervention/1.json
+    def show
+    end
+  
+  
+  
+    # GET /intervention/1/edit
+    def edit
+    end
+  
+    # POST /intervention
+    # POST /intervention.json
+  
+      respond_to do |format|
+        if @intervention.save
+          format.html { redirect_to @intervention, notice: 'intervention was successfully created.' }
+          format.json { render :show, status: :created, location: @intervention }
+        else
+          format.html { render :new }
+          format.json { render json: @intervention.errors, status: :unprocessable_entity }
+        end
+      end
+    
+  
+    # PATCH/PUT /intervention/1
+    # PATCH/PUT /intervention/1.json
+    def update
+      respond_to do |format|
+        if @intervention.update(intervention_params)
+          format.html { redirect_to @intervention, notice: 'intervention was successfully updated.' }
+          format.json { render :show, status: :ok, location: @intervention }
+        else
+          format.html { render :edit }
+          format.json { render json: @intervention.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  
+    # DELETE /intervention/1
+    # DELETE /intervention/1.json
+    def destroy
+      @intervention.destroy
+      respond_to do |format|
+        format.html { redirect_to intervention_url, notice: 'intervention was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end
+  
+    private
+      # Use callbacks to share common setup or constraints between actions.
+      def set_intervention
+        @intervention = intervention.find(params[:id])
+      end
+  
+      # Never trust parameters from the scary internet, only allow the white list through.
+      def intervention_params
+        params.fetch(:intervention, {})
+      end 
+    end

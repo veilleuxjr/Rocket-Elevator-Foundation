@@ -58,14 +58,13 @@
                     <div class= "chooseType">
                             <label class= "labelStyle">Client's Employee :</label>
                             <%= f.collection_select(:employee_id, Employee.all, :id, :first_name, {:prompt=>'Select Employee'}, {:class=>'employe_id'}) %>
-                        </div> 
-                    <!-- /client employee -->
-                    <br>                           
-                    <%# <button class="btn btn-green btn-lg" type= 'submit'>SUBMIT INTERVENTION</button> %>
+                        </div>
+                    <br>                  
+                    
                     
                    
                    
-                    
+                     <%= f.submit %>
 
                 </section>
                 <!-- /form -->

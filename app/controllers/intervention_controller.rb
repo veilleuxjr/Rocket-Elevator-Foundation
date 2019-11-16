@@ -1,14 +1,14 @@
 class InterventionController < ApplicationController
-   
-    before_action :set_intervention, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+    before_action :set_interventions, only: [:show, :edit, :update, :destroy]
    
     def new
-      @interventions = Intervention.new
+      @intervention = Intervention.new
     end
 
     def get_elevator_by_column
       puts params[:column_id]
-        @elevator = Elevator.find(params[:column_id])
+        @elevator = Elevator.where("column_id = ?", params[:column_id])
         puts @elevator
         respond_to do |format|
           format.json { render :json => @elevator }
@@ -69,161 +69,36 @@ class InterventionController < ApplicationController
   
     def create
   
-      typeOfBuilding = params['Type_of_building']
-  
-      residentialApartmentNumber = params['Residential_apartment_number']
-      residentialFloorNumber = params['Residential_floor_number']
-      residentialUndergroundNumber = params['Residential_underground_number']
-  
-      commercialFloorNumber = params['Commercial_floor_number']
-      commercialStoreNumber = params['Commercial_store_number']
-      commercialUndergroundNumber = params['Commercial_underground_number']
-      commercialElevCageNumber = params['Commercial_elevCage_number']
-      commercialParkPlaceNumber = params['Commercial_parkPlace_number']
-  
-      corporateCompanieNumber = params['Corporate_companie_number']
-      corporateFloorNumber = params['Corporate_floor_number']
-      corporateUndergroundNumber = params['Corporate_underground_number']
-      corporateParkPlaceNumber = params['Corporate_parkPlace_number']
-      corporateOccPerFloorNumber =params['Corporate_OccPerFloor_number']
-  
-      hybridStoreNumber = params['Hybrid_store_number']
-      hybridFloorNumber = params['Hybrid_floor_number']
-      hybridUndergroundNumber = params['Hybrid_underground_number']
-      hybridParkplaceNumber = params['Hybrid_parkPlace_number']
-      hybridOccPerFloorNumber = params['Hybrid_OccPerFloor_number']
-      hybridHourActNumber = params['Hybrid_hourAct_number']
-  
-      estCageNumber = params['Est_cage_number']
-      range = params['Range']
-      unitPrice = params['Unit_price']
-      elevatorPrice = params['Elevator_price']
-      installationCost =params['Installation_cost']
-      totalPrice = params['Total_price']
-  
-      name = params['Name']
-      company = params['Company']
-      email = params['Email']
-      phone = params['Phone']
-  
+      @intervention = Intervention.new
+
+      @intervention.author = params['author']
+      @intervention.customer_id = params['intervention']['customer']
+      @intervention.building_id = params['intervention']['building_id']
+      @intervention.battery_id = params['intervention']['battery_id'] if params['intervention']['column_id'] == ""
+      @intervention.column_id = params['intervention']['column_id'] if params['intervention']['elevator_id'] == ""
+      @intervention.elevator_id = params['intervention']['elevator_id']
+      @intervention.employee_id = params['intervention']['employee_id']
+      @intervention.report = params['report_intervention']
+    
+      @intervention.save!
       
-  
-      @intervention = intervention.new(intervention_params)
-      
-      
-      @intervention.type_of_building = typeOfBuilding
-  
-      if typeOfBuilding == 'residential'
-        @intervention.apartments_number = residentialApartmentNumber
-        @intervention.floors_number = residentialFloorNumber
-        @intervention.undergrounds_number = residentialUndergroundNumber
-  
-        @intervention.estimate_cage_number = estCageNumber
-        @intervention.range_of_elevator = range
-        @intervention.unit_price = unitPrice
-        @intervention.elevator_price = elevatorPrice
-        @intervention.installation_cost = installationCost
-        @intervention.total_price = totalPrice
-        @intervention.name = name
-        @intervention.company = company
-        @intervention.email = email
-        @intervention.phone_number = phone
-  
-        
-        @intervention.save!
-        @intervention.intervention
-        redirect_to intervention_confirm_path
-        
-      end
-  
-      if typeOfBuilding == 'commercial'
-        @intervention.floors_number = commercialFloorNumber
-        @intervention.stores_number = commercialStoreNumber
-        @intervention.undergrounds_number = commercialUndergroundNumber
-        @intervention.cage_number = commercialElevCageNumber
-        @intervention.parking_places = commercialParkPlaceNumber
-  
-        @intervention.estimate_cage_number = estCageNumber
-        @intervention.range_of_elevator = range
-        @intervention.unit_price = unitPrice
-        @intervention.elevator_price = elevatorPrice
-        @intervention.installation_cost = installationCost
-        @intervention.total_price = totalPrice
-        @intervention.name = name
-        @intervention.company = company
-        @intervention.email = email
-        @intervention.phone_number = phone
-  
-        
-        @intervention.save!
-        @intervention.intervention
-        redirect_to intervention_confirm_path
-       
-      end
-  
-      if typeOfBuilding == 'corporate'
-        @intervention.companies_number = corporateCompanieNumber
-        @intervention.floors_number = corporateFloorNumber
-        @intervention.undergrounds_number = corporateUndergroundNumber
-        @intervention.parking_places = corporateParkPlaceNumber
-        @intervention.occupants_per_floor = corporateOccPerFloorNumber
-  
-        @intervention.estimate_cage_number = estCageNumber
-        @intervention.range_of_elevator = range
-        @intervention.unit_price = unitPrice
-        @intervention.elevator_price = elevatorPrice
-        @intervention.installation_cost = installationCost
-        @intervention.total_price = totalPrice
-        @intervention.name = name
-        @intervention.company = company
-        @intervention.email = email
-        @intervention.phone_number = phone
-  
-        
-        @intervention.save!
-        @intervention.intervention
-        redirect_to intervention_confirm_path
-        
-      end
-  
-      if typeOfBuilding == 'hybride'
-        @intervention.stores_number = hybridStoreNumber
-        @intervention.floors_number = hybridFloorNumber
-        @intervention.undergrounds_number = hybridUndergroundNumber
-        @intervention.parking_places = hybridParkplaceNumber
-        @intervention.occupants_per_floor = hybridOccPerFloorNumber
-        @intervention.open_hours = hybridHourActNumber
-  
-        @intervention.estimate_cage_number = estCageNumber
-        @intervention.range_of_elevator = range
-        @intervention.unit_price = unitPrice
-        @intervention.elevator_price = elevatorPrice
-        @intervention.installation_cost = installationCost
-        @intervention.total_price = totalPrice
-        @intervention.name = name
-        @intervention.company = company
-        @intervention.email = email
-        @intervention.phone_number = phone
-  
-        
-        @intervention.save!
-        @intervention.intervention
-        redirect_to intervention_confirm_path
-       
+        if params['intervention']['column_id'] == ""
+        @intervention.get_interventions_battery
+      elsif params['intervention']['elevator_id'] == ""
+        @intervention.get_interventions_column
+      else 
+        @intervention.get_interventions_elevator
       end
     
-  
-      if typeOfBuilding == nil
-        redirect_to intervention_new_path
-      end
-    end
+        redirect_to root_path
     
+      end
   
     # GET /interventions
     # GET /interventions.json
     def index
       @intervention.get_a_intervention
-      @interventions = intervention.all
+      @intervention = intervention.all
     end
   
     # GET /interventions/1

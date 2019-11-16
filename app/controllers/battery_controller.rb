@@ -1,4 +1,4 @@
-class BuildingsController < ApplicationController
+class BatteryController < ApplicationController
 
     def get_battery_by_buildings
       @battery = Battery.where("buildings_id = ?", params[:buildings_id])
