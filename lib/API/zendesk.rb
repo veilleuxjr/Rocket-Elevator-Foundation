@@ -6,10 +6,10 @@ class Zendesk
         @client = ZendeskAPI::Client.new do |config|
             # Mandatory:
 
-            config.url = "https://teamapihelp.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
+            config.url = "rocketconsolidationhelp.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
 
             # Basic / Token Authentication
-            config.username = "miguel_martin_09@hotmail.fr"
+            config.username = "jeremieveilleux99@gmail.com"
 
             # Choose one of the following depending on your authentication choice
             config.token = ENV['ZENDESK_TOKEN']
@@ -35,4 +35,8 @@ class Zendesk
         ticket = ZendeskAPI::Ticket.create(@client, :subject => "#{name} from #{company}", :decription => "Create Ticket", :comment => { :value => "The contact #{name} from company #{company} can be reached at email #{email} and at phone number #{phone_number}."}, :submitter_id => @client.current_user.id, :type => "task", :priority => "urgent")
      #    ticket.save!
     end    
+    def get_an_intervention(author, customer_id, building_id, battery_id, column_id, elevator_id, employee_id, rapport)
+        ZendeskAPI::Ticket.create(@client, :subject => "#{employee_id} from #{customer_id}", :decription => "Problem or question", :comment => { :value =>"The contact #{author} sent you an intervention request from company #{customer_id} regarding the building #{building_id}, the battery #{battery_id}, the column #{column_id}, the elevator #{elevator_id}, which would require contribution from Rocket Elevators. Description and more info here: #{report}."}, :submitter_id => @client.current_user.id, :type => "question", :priority => "urgent")
+    end 
+
 end

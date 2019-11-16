@@ -91,8 +91,38 @@ class InterventionsController < ApplicationController
       #   @interventions.get_interventions_elevator
      
       @interventions.save!
+      get_intervention(@interventions)
       redirect_to root_path
       end
+
+      def get_intervention(interventions)
+
+        business_name = interventions.customer.business_name
+        building_nb = interventions.building.id
+        admin_fullname = interventions.building.fullName_building_administrator
+        address_number = interventions.building.address.street_number
+        address_city = interventions.building.address.city
+        battery_nb = interventions.battery.id
+        column_nb = interventions.column.id
+        elevator_nb = interventions.elevator.id
+        employee_name = interventions.employee.name
+        report_info = interventions.rapport
+    
+      zendesk = Zendesk.new
+    
+      zendesk.get_an_intervention(
+    
+        business_name, 
+        building_nb, 
+        admin_fullname,
+        address_number, 
+        address_city, 
+        battery_nb, 
+        column_nb,
+        elevator_nb
+        employee_name, 
+        report_info) 
+    end 
   
     # GET /intervention
     # GET /intervention.json

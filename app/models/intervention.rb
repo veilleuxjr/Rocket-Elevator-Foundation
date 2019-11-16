@@ -10,4 +10,7 @@ class Intervention < ApplicationRecord
     def company_name
         
     end
+
+   
+
 end
