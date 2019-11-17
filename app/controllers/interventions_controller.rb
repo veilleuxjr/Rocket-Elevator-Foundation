@@ -1,3 +1,4 @@
+require './lib/API/zendesk.rb'
 class InterventionsController < ApplicationController
    
 	skip_before_action :verify_authenticity_token
@@ -97,38 +98,34 @@ class InterventionsController < ApplicationController
 
       def get_intervention(interventions)
 
-        business_name = interventions.customer.business_name
-        building_nb = interventions.building.id
-        admin_fullname = interventions.building.fullName_building_administrator
-        address_number = interventions.building.address.street_number
+        customer_info = interventions.customer.company_name
+        building_nb = interventions.building_id
+        address_number = interventions.building.address.number_and_street
         address_city = interventions.building.address.city
-        battery_nb = interventions.battery.id
-        column_nb = interventions.column.id
-        elevator_nb = interventions.elevator.id
-        employee_name = interventions.employee.name
+        battery_nb = interventions.battery_id
+        column_nb = interventions.column_id
+        elevator_nb = interventions.elevator_id
+        employee_name = interventions.employee.first_name
+        employee_lastname = interventions.employee.last_name
         report_info = interventions.rapport
     
       zendesk = Zendesk.new
-    
       zendesk.get_an_intervention(
-    
-        business_name, 
+        customer_info, 
         building_nb, 
-        admin_fullname,
         address_number, 
         address_city, 
         battery_nb, 
         column_nb,
-        elevator_nb
+        elevator_nb,
         employee_name, 
-        report_info) 
+        employee_lastname) 
     end 
   
     # GET /intervention
     # GET /intervention.json
     def index
-      @intervention.get_a_intervention
-      @intervention = intervention.all
+      @interventions = intervention.all
     end
   
     # GET /intervention/1
@@ -190,4 +187,6 @@ class InterventionsController < ApplicationController
       def intervention_params
         params.fetch(:intervention, {})
       end 
-    end
+    
+  end
+

@@ -6,7 +6,7 @@ class Zendesk
         @client = ZendeskAPI::Client.new do |config|
             # Mandatory:
 
-            config.url = "rocketconsolidationhelp.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
+            config.url = "https://rocketconsolidationhelp.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
 
             # Basic / Token Authentication
             config.username = "jeremieveilleux99@gmail.com"
@@ -35,8 +35,9 @@ class Zendesk
         ticket = ZendeskAPI::Ticket.create(@client, :subject => "#{name} from #{company}", :decription => "Create Ticket", :comment => { :value => "The contact #{name} from company #{company} can be reached at email #{email} and at phone number #{phone_number}."}, :submitter_id => @client.current_user.id, :type => "task", :priority => "urgent")
      #    ticket.save!
     end    
-    def get_an_intervention(author, customer_id, building_id, battery_id, column_id, elevator_id, employee_id, rapport)
-        ZendeskAPI::Ticket.create(@client, :subject => "#{employee_id} from #{customer_id}", :decription => "Problem or question", :comment => { :value =>"The contact #{author} sent you an intervention request from company #{customer_id} regarding the building #{building_id}, the battery #{battery_id}, the column #{column_id}, the elevator #{elevator_id}, which would require contribution from Rocket Elevators. Description and more info here: #{report}."}, :submitter_id => @client.current_user.id, :type => "question", :priority => "urgent")
+       
+    def get_an_intervention(customer_info, building_nb, address_number, address_city, battery_nb, column_nb, elevator_nb, employee_name, employee_lastname)
+        ZendeskAPI::Ticket.create(@client, :subject => "Intervention for #{customer_info}", :decription => "Intervention needed", :comment => { :value =>"An administrater sent an intervention request for the company #{customer_info} regarding the building #{building_nb} #{address_number} in #{address_city}. There is a problem with either the battery #{battery_nb}, the column #{column_nb} or the elevator #{elevator_nb}, which would require support from Rocket Elevators."}, :submitter_id => @client.current_user.id, :type => "question", :priority => "urgent")
     end 
 
 end
