@@ -24,7 +24,6 @@ config/master.key
 config/secrets.yml
 config/cable.yml
 config/database.yml
-config/storage.yml
 config/database_dwh.yml
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
