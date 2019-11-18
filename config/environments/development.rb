@@ -32,7 +32,8 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-  config.web_console.whitelisted_ips = '162.158.126.148'
+  config.web_console.whitelisted_ips = Socket.ip_address_list.reduce([]) do |res, addrinfo|
+    addrinfo.ipv4? ? res << IPAddr.new(addrinfo.ip_address).mask(24) : res
 
 
   # Print deprecation notices to the Rails logger.
