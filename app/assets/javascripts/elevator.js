@@ -8,6 +8,7 @@ $(function() {
     $(".column_id").change(function() {
         console.log("column change")
      var id_value_string = $(this).val();
+     $("#elevators_select").hide();
      console.log(id_value_string)
      if (id_value_string == "") {
       $(".elevator_id option").remove();
@@ -28,16 +29,16 @@ $(function() {
         // Clear all options from buildings select
         $(".elevator_id option").remove();
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "elevator" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None Chosen" + "</option>";
         $(row).appendTo(".elevator_id");
         // Fill buildings select
         $.each(data, function(i, j) {
-         row = "<option value=\"" + j.id + "\">" + j.id + " "+ j.information + "</option>";
+         row = "<option value=\"" + j.id + "\">"+ "Elevator #" + j.id + "</option>";
          $(row).appendTo(".elevator_id");
         });
        }
       });
-     }
+     } $("#elevators_select").show();
     });
  
    });

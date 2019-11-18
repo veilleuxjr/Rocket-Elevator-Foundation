@@ -9,6 +9,10 @@ $(function() {
     $(".customer_id").change(function() {
         console.log("customer change")
      var id_value_string = $(this).val();
+     $("#buildings_select").hide(); 
+     $("#batteries_select").hide();
+     $("#columns_select").hide();
+     $("#elevators_select").hide();
      console.log(id_value_string)
      if (id_value_string == "") {
       $(".building_id option").remove();
@@ -29,16 +33,16 @@ $(function() {
         // Clear all options from buildings select
         $(".building_id option").remove();
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "buildings" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "Select Building" + "</option>";
         $(row).appendTo(".building_id");
         // Fill buildings select
         $.each(data, function(i, j) {
-         row = "<option value=\"" + j.id + "\">" + j.admin_full_name + "</option>";
+         row = "<option value=\"" + j.id + "\">"+ "Building #" + j.id + " - " + " administered by " + j.admin_full_name + "</option>";
          $(row).appendTo(".building_id");
         });
        }
       });
-     }
+     } $("#buildings_select").show(); 
     });
- 
+
    });

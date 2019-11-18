@@ -5,7 +5,8 @@ class Building < ApplicationRecord
     belongs_to :customer
     belongs_to :address, dependent: :destroy
 
-    def company_name
+    def building_info
+    "Building #{id} at #{address.number_and_street}"
     end
 end
 
