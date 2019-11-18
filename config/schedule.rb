@@ -7,11 +7,11 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
-every 1.minute do
+#every 1.minute do
   
-  rake "db_dwh:lib:pg_sync.rb"
-  puts "Your Postgresql Database is now Updated!!"
-end
+ # rake "db_dwh:lib:pg_sync.rb"
+  #puts "Your Postgresql Database is now Updated!!"
+#end
 
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
