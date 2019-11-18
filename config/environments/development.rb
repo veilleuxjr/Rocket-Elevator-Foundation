@@ -34,7 +34,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.web_console.whitelisted_ips = Socket.ip_address_list.reduce([]) do |res, addrinfo|
     addrinfo.ipv4? ? res << IPAddr.new(addrinfo.ip_address).mask(24) : res
-
+  end
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
